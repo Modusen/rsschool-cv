@@ -61,6 +61,15 @@ public class MessageServiceImpl implements MessageService {
 
 ## Expirience
 
+1. _TR-Soft August 2023 - now_
+2. _Startup July 2023 - September 2023_
+3. _Freelance 2022 - 2023_
+
 ## Education
 
+_St-Petersburg State University of Architecture and Civil Engineering 2010-2015_
+
 ## Languages
+
+- _Russian - native_
+- _English - B2_

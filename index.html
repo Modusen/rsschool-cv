@@ -1,18 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
 
-  <body>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nesciunt
-      voluptate minima sapiente, voluptatibus illo asperiores libero consectetur
-      deserunt magnam id omnis facere soluta. Sint ipsum doloribus amet dolores
-      ab!
-    </p>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Astrashenya Dmitry</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="main main-container">
+      <header class="header">
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#contacts" class="nav-link">Contacts</a>
+            </li>
+            <li class="nav-item">
+              <a href="#about-me" class="nav-link">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a href="#skills" class="nav-link">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a href="#code-example" class="nav-link">Code Example</a>
+            </li>
+            <li class="nav-item">
+              <a href="#experience" class="nav-link">Expriece</a>
+            </li>
+            <li class="nav-item">
+              <a href="#education" class="nav-link">Education</a>
+            </li>
+            <li class="nav-item">
+              <a href="#languages" class="nav-link">Languages</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <section class="section prof" id="prof">
+        <h1>Astrashenya Dmitry</h1>
+        <p>Java Developer</p>
+        <hr>
+      </section>
+      <section class="section photo" id="photo">
+        <h2>It's me</h2>
+        <img class="rounded-img" src="my_photo.jpg" width="300" height="350" alt="It's me" id="me">
+      </section>
+      <section class="section contacts" id="contacts">
+        <h2 class="section-title">Contacts</h2>
+        <ul>
+          <li class="li">
+            <span class="contact">Location: St-Petersburg, Russia</span>
+          </li>
+          <li class="li">
+            <span class="contact">Email: AstrashenyaD@ya.ru</span>
+          </li>
+          <li class="li">
+            <span class="contact">Telegram: @DmitriyAstrashenya</span>
+          </li>
+          <li class="li">
+            <span class="contact">Github:</span><a class="contact-link" href="https://github.com/modusen">Modusen
+            </a>
+          </li>
+        </ul>
+        <hr>
+      </section>
+      <section class="section about-me" id="about-me">
+        <h2 class="section-title">About Me</h2>
+        <p>
+          Hello everyone! My name is Dmitriy. I am a Java developer.
+          <br>
+          I am really glad and so excited to start learning JS.
+        </p>
+        <hr>
+      </section>
+      <section class="section skills" id="skills">
+        <h2 class="section-title">Skills</h2>
+        <ul>
+          <li class="li">Java 8+<span></span></li>
+          <li class="li">
+            Spring (Boot, Data JPA, MVC, Security etc)<span></span>
+          </li>
+          <li class="li">PostgreSQL, Oracle<span></span></li>
+          <li class="li">Vaadin.<span></span></li>
+          <li class="li">Kafka<span></span></li>
+          <li class="li">Microservices<span></span></li>
+          <li class="li">HTML&CSS basics<span></span></li>
+        </ul>
+        <hr>
+      </section>
+      <section class="section code-example" id="code-example">
+        <h2 class="section-title">Code Example</h2>
+        <pre>
+  @Service
+  public class MessageServiceImpl implements MessageService {
+      private final Logger logger = LoggerFactory.getLogger(MessageServiceImpl.class);
+      private final RestTemplate restTemplate = new RestTemplate();
+      @Value("${vk_bot_token}")
+      private String token;
+      @Value("${callback_API_version}")
+      private String version;
+
+      public void sendMessageInResponse(Message message) {
+          String url = "https://api.vk.com/method/messages.send?";
+
+          try {
+              URI uri = new URIBuilder(url)
+                      .addParameter("message", "Вы сказали: " + message.getText())
+                      .addParameter("peer_id", String.valueOf(message.getPeerId()))
+                      .addParameter("access_token", token)
+                      .addParameter("v", version)
+                      .addParameter("random_id", "0")
+                      .build();
+              ResponseEntity&lt;?> response = restTemplate.postForEntity(uri, null, String.class);
+
+              if (response.getStatusCode() == HttpStatusCode.valueOf(200)) {
+                  logger.info("Response body: \r\n" + response.getBody());
+              }
+
+          } catch (URISyntaxException e) {
+              logger.error("Ошибка создания URI");
+              e.printStackTrace();
+          }
+      }
+  }
+              </pre>
+        <hr>
+      </section>
+      <section class="section experience" id="experience">
+        <h2 class="section-title">Experience</h2>
+        <ul>
+          <li class="li">
+            <span>
+              TR-Soft August 2023 - now
+              <br>
+              Startup July 2023 - September 2023
+              <br>
+              Freelance 2022 - 2023
+            </span>
+          </li>
+        </ul>
+
+        <hr>
+      </section>
+      <section class="section education" id="education">
+        <h2 class="section-title">Education</h2>
+        <ul>
+          <li class="li">
+            <span>St-Petersburg State University of Architecture and Civil
+              Engineering 2010-2015</span>
+          </li>
+        </ul>
+        <hr>
+      </section>
+      <section class="section english" id="english">
+        <h2 class="section-title">Languages</h2>
+        <ul>
+          <li class="li">
+            <span> Russian - Native </span>
+          </li>
+          <li class="li">
+            <span> English - B2 </span>
+          </li>
+        </ul>
+        <hr>
+      </section>
+
+      <footer class="footer">
+        <div class="cr">
+          <span>&#169;</span>
+          <span>2024</span>
+        </div>
+        <a class="me" href="https://github.com/modusen">Modusen </a>
+        <a class="rs" href="https://rs.school/courses/javascript-ru"><img src="rs_school_js.svg" alt="RS School Logo"
+            height="30"></a>
+      </footer>
+    </main>
+  </div>
+</body>
+
 </html>
